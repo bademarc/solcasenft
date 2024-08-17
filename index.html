@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SOLCASE NFT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="./script.js" defer></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-react-ui/styles.css" rel="stylesheet">
+  <!-- Your existing CSS and other links -->
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    html, body {
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      background-image: url("http://res.cloudinary.com/adamlancon/image/upload/v1506452186/untitled_10_kpjcmn.svg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .case-info h1 {
+          font-size: 1.8em;
+      }
+
+      .case-info p {
+          font-size: 1em;
+      }
+
+      .preview-item img {
+          width: 80px;
+          height: 80px;
+      }
+
+      .titleBox > img {
+        width: 300px;
+      }
+
+      .titleBox > p {
+        font-size: 13px;
+      }
+
+      .selectors {
+        font-size: 16px;
+        grid-area: 2/1/5/7;
+      }
+
+      .aboutTab > p {
+        font-size: 12px;
+      }
+
+      .skillPage {
+        font-size: 10px;
+      }
+
+      .languages {
+        grid-area: 1/1/2/4;
+        grid-template: 1fr 1fr/ 1fr 1fr 1fr 1fr;
+        height: 130px;
+      }
+
+      .languages > img {
+        height: 60px;
+      }
+
+      .skillWords {
+        grid-area: 2/1/3/4;
+        font-size: 9px;
+        justify-content: center;
+      }
+
+      .projectTab {
+        grid-template: 10% 1fr 1fr 1fr/ 1fr 1fr 1fr;
+      }
+
+      .projectTab > div {
+        height: 100px;
+        width: 100px;
+        margin-left: 10px;
+      }
+
+      .closing {
+        grid-area: 1/3/2/4;
+      }
+
+      .projectTab > h1 {
+        grid-area: 1/1/2/4;
+        font-size: 13px;
+      }
+
+      .social {
+        height: 50%;
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .selectors {
+        grid-area: 2/2/3/3;
+        margin-top: 50px;
+      }
+
+      .aboutTab > p {
+        font-size: 11px;
+      }
+
+      .projectPage {
+        height: 100%;
+        width: 100%;
+      }
+
+      .projectTab > div {
+        height: 75px;
+        width: 75px;
+        font-size: 9px;
+        border: solid white 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frontPage">
+    <div class="titleBox">
+      <h1>SOLCASE NFT</h1>
+      <p>OPEN CASE SYSTEM</p>
+    </div>
+    <div class="littleAdam">
+      <img id="littleAdam" src="beta-testing.svg" />
+      <img id="littleAdam2" src="beta-testing.svg" />
+    </div>
+    <div class="selectors">
+      <div class="about">
+        <p><i class="fa fa-caret-right" aria-hidden="true"></i>About</p>
+      </div>
+      <div class="skills">
+        <p><i class="fa fa-caret-right" aria-hidden="true"></i>Case opening</p>
+      </div>
+      <div class="contact">
+        <p><i class="fa fa-caret-right" aria-hidden="true"></i>Socials</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="aboutPage">
+    <div class="aboutTab">
+      <span id="close">&times;</span>
+      <img src="beta-testing.svg" />
+      <img id="adam2" src="beta-testing.svg" />
+      <p>Welcome to SOLCASE, a pioneering NFT project on the Solana blockchain...</p>
+    </div>
+  </div>
+
+  <div class="skillPage">
+    <div class="skillTab">
+      <span class="close">&times;</span>
+      <div class="skillWords">
+        <main>
+          <header>
+            <nav>
+              <div class="wallet">
+                <div class="logo">SOLCASE NFT</div>
+                <span id="balance">Balance: 0.00 SOL</span>
+                <button>Connect Wallet</button>
+              </div>
+            </nav>
+          </header>
+          <section id="live-preview">
+            <h2 class="fade-in">Live Preview</h2>
+            <div id="preview-area" class="fade-in"></div>
+          </section>
+          <h3>SOLCASE - Case that you want to open</h3>
+          <p>With the highest probability of dropping valuable items</p>
+          <div id="unbox-area">
+            <div class="arrow-down bounce"></div>
+            <canvas id="slotMachineCanvas"></canvas>
+          </div>
+          <div class="case-info fade-in">
+            <button id="openCaseButton" class="button-hover">Open Case</button>
+          </div>
+          <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+          </div>
+          <section id="inventory">
+            <h2>Inventory</h2>
+            <div id="inventory-items"></div>
+          </section>
+          <div id="dialog">
+            <div id="dialog-msg"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div class="contactPage">
+    <div class="contactTab">
+      <span class="closing">&times;</span>
+      <div class="social">
+      </div>
+      <div class="words">
+        <p> <h1>Official Links </h1><br>
+          🌐 Discord: <a href="https://discord.gg/solcasenft">Join our community</a> 
+          <br>
+           🐦 Twitter: <a href="https://x.com/solcasenft">Follow us on Twitter</a>
+          <br>
+          💻 Beta Website: This site
+          <br>
+          
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
